@@ -1,5 +1,6 @@
 import PokemonCard from "./components/PokemonCard";
 
+
 function App() {
   const pokemonList = [
     {
@@ -17,5 +18,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App
