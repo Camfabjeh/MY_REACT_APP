@@ -1,12 +1,48 @@
-function Button(props) {
+import PropTypes from "prop-types";
+
+function NavBar({ pokemonIndex, setPokemonIndex, pokemonList }) {
+  const pickPrevious = () => {
+    setPokemonIndex(pokemonIndex - 1);
+    pokemonIndex === 3 ? (
+      alert("Pika, Pikachu!")
+    ) : ("")
+  }
+  const pickNext = () => {
+    setPokemonIndex(pokemonIndex + 1);
+    pokemonIndex === 3 ? (
+      alert("Pika, Pikachu!")
+    ) : ("")
+  }
 
   return (
-    <div>
-      {props.index >= 1 ? <button onClick={props.handleMinusClick}>Précédent</button> : ""}
-      {props.index < 4 ? <button onClick={props.handlePlusClick}>Suivant</button> : ""}
+    <nav>
+      {pokemonIndex > 0 && (
+        <button type="button" onClick={pickPrevious}>
+          previous
+        </button>
+      )}
 
-    </div>)
+      {pokemonIndex < pokemonList.length - 1 && (
+        <button type="button" onClick={pickNext}>
+          next
+        </button>
+      )}
+
+    </nav>
+
+  );
+
 }
 
-export default Button;
+NavBar.propTypes = {
+  pokemonIndex: PropTypes.number.isRequired,
+  setPokemonIndex: PropTypes.func.isRequired,
+  pokemonList: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string,
+    })
+  ).isRequired,
+};
 
+export default NavBar;
