@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PokemonCard from "./components/PokemonCard";
-import Button from "./components/Button"
+import Button from "./components/NavBar"
 
 const pokemonList = [
   {
